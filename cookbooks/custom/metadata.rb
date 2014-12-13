@@ -5,6 +5,6 @@ description       "Custom chef recipes"
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.mdown'))
 version           "1.0"
 
-%w( apt ).each do |d|
+%w( apt mysql ).each do |d|
   depends d
 end
