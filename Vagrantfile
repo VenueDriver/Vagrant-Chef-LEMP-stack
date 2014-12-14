@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
 
   # This can be set to the host name you wish the guest machine to have. Vagrant
   # will automatically execute the configuration necessary to make this happen.
-  config.vm.hostname = "wordpress-dev"
+  config.vm.hostname = "lemp-dev"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
