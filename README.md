@@ -29,6 +29,8 @@ provision (configure) the virtual machine using Chef.  The end result will be a 
 machine with the full prinsto.com technology stack, with this project's source code mapped
 to a shared folder that can be accessed from your native tools in your host OS, and also
 from the technology stack inside of the Vagrant virtual machine.
+* You should now be able to access [http://localhost:7777/info.php](http://localhost:7777/info.php)
+from your host OS to see PHP info.
 * SSH to the Vagrant VM with ```vagrant ssh```.
 * Switch into this project's shared code folder with ```cd /vagrant```.  From your terminal,
 you are now operating in a simulated production environment.  If you run a Rake task or start
