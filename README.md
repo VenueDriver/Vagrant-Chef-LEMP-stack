@@ -40,8 +40,7 @@ from the technology stack inside of the Vagrant virtual machine.
 from your host OS to see PHP info.  The root of the web site is in ```/vagrant``` in the VM.
 * SSH to the Vagrant VM with ```vagrant ssh```.
 * Switch into this project's shared code folder with ```cd /vagrant```.  From your terminal,
-you are now operating in a simulated production environment.  If you run a Rake task or start
-a Rails server then you will be using the technology stack that Chef created for you.
+you are now operating in a simulated production environment.
 
 To start a development environment for future development sessions:
 
