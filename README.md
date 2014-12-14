@@ -1,9 +1,8 @@
-Wordpress-Development
-=====================
+Vagrant-Chef-LEMP
+=================
 
-A starting point for public-facing web site projects.  A basic project with a
-Vagrant VM configuration and Chef recipes for provisioning a Wordpress
-development environment.
+A starting point for PHP web site projects.  A basic project with a Vagrant configuration with Chef
+provisioning for setting up a LEMP stack (Linux, nginx, MySQL, PHP).
 
 ## Development
 
@@ -11,7 +10,9 @@ This project uses Vagrant for running the code in a virtual machine during devel
 to automatically configure virtual machine instances, so that both development and production
 virtual machine instances will be the product of source code, not manual labor. This keeps the
 technology stack consistent and predictable, and it keeps all developers on the exact same
-technology stack.
+technology stack.  The beauty of Vagrant is that you run your code using a stable technology stack
+running on a VM that is the product of source code, but you can edit your code using your favorite
+native tools in your host OS.  You get the best of both worlds.
 
 To set up a development environment:
 
@@ -26,11 +27,11 @@ this command: ```git clone git@github.com:VenueDriver/Wordpress-Development.git`
 * Spin up your Vagrant virtual machine with ```vagrant up```.  Vagrant will automatically
 download a virtual machine .iso file, create a new Virtual Box instance from it, and then
 provision (configure) the virtual machine using Chef.  The end result will be a virtual
-machine with the full prinsto.com technology stack, with this project's source code mapped
+machine with the full LEMP technology stack, with this project's source code mapped
 to a shared folder that can be accessed from your native tools in your host OS, and also
 from the technology stack inside of the Vagrant virtual machine.
 * You should now be able to access [http://localhost:7777/info.php](http://localhost:7777/info.php)
-from your host OS to see PHP info.
+from your host OS to see PHP info.  The root of the web site is in ```/vagrant``` in the VM.
 * SSH to the Vagrant VM with ```vagrant ssh```.
 * Switch into this project's shared code folder with ```cd /vagrant```.  From your terminal,
 you are now operating in a simulated production environment.  If you run a Rake task or start
