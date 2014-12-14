@@ -4,6 +4,12 @@ Vagrant-Chef-LEMP
 A starting point for PHP web site projects.  A basic project with a Vagrant configuration with Chef
 provisioning for setting up a LEMP stack (Linux, nginx, MySQL, PHP).
 
+## Usage
+
+You can either fork this project to start a new PHP site, or you can copy the ```Vagrantfile``` and
+```cookbooks``` folder into your own project.  You might need to change the ```config.vm.hostname```
+of the VM for your specific project in the ```Vagrantfile```.
+
 ## Development
 
 This project uses Vagrant for running the code in a virtual machine during development. It uses Chef
