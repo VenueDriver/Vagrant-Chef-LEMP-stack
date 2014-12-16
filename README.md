@@ -1,8 +1,10 @@
 Vagrant-Chef-LEMP
 =================
 
-A starting point for PHP web site projects.  A basic project with a Vagrant configuration with Chef
-provisioning for setting up a LEMP stack (Linux, nginx, MySQL, PHP).
+A pluggable PHP technology stack for developing web site projects.  A basic project with a Vagrant
+configuration with Chef provisioning for setting up a LEMP stack (Linux, nginx, MySQL, PHP).
+
+## Purpose
 
 This project uses Vagrant to encapsulate the technology stack for a PHP web application in a virtual
 machine, for development. It uses Chef to automatically configure virtual machine instances, so that
