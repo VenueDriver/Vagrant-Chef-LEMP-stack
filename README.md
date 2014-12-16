@@ -4,21 +4,29 @@ Vagrant-Chef-LEMP
 A starting point for PHP web site projects.  A basic project with a Vagrant configuration with Chef
 provisioning for setting up a LEMP stack (Linux, nginx, MySQL, PHP).
 
+This project uses Vagrant to encapsulate the technology stack for a PHP web application in a virtual
+machine, for development. It uses Chef to automatically configure virtual machine instances, so that
+both development and production virtual machine instances will be the product of source code, not
+manual labor. This keeps the technology stack consistent and predictable, and it keeps all
+developers on the exact same technology stack.  The beauty of Vagrant is that you run your code
+using a stable technology stack running on a VM that is the product of source code, but you can edit
+your code using your favorite native tools in your host OS.  You get the best of both worlds.
+
 ## Usage
 
-You can either fork this project to start a new PHP site, or you can copy the ```Vagrantfile``` and
-```cookbooks``` folder into your own project.  You might need to change the ```config.vm.hostname```
-of the VM for your specific project in the ```Vagrantfile```.
+Embed this project as a folder in your PHP project.  You might want to consider embedding it as a
+Git submodule.  This project will share the ```..``` folder with the Vagrant VM as its
+```/vagrant``` folder.  That's the document root for the nginx server, so the root of your PHP
+project will be the root of the web server in the Vagrant VM.  You'll be able to access it at
+```http://localhost:7777```.
+
+## Provisioning
+
+This project uses Chef to provision the Vagrant VM.  Specifically,
+[chef-solo](https://docs.chef.io/chef_solo.html).  It would be simple to swap out this technology
+stack configuration for another one that uses Docker or something else to configure the Vagrant VM.
 
 ## Development
-
-This project uses Vagrant for running the code in a virtual machine during development. It uses Chef
-to automatically configure virtual machine instances, so that both development and production
-virtual machine instances will be the product of source code, not manual labor. This keeps the
-technology stack consistent and predictable, and it keeps all developers on the exact same
-technology stack.  The beauty of Vagrant is that you run your code using a stable technology stack
-running on a VM that is the product of source code, but you can edit your code using your favorite
-native tools in your host OS.  You get the best of both worlds.
 
 To set up a development environment:
 
@@ -51,3 +59,21 @@ To start a development environment for future development sessions:
 will take much less time than it did when you initially spun up the development VM.
 * ```vagrant ssh```
 * ```cd /vagrant```
+
+## Structure
+
+This project is designed to be embedded as a subfolder in a PHP project.  Possibly as a Git 
+submodule.  In this example, the entire LEMP stack is stored in the ```vagrant/``` folder in the
+PHP web app project.
+
+    web app - The root folder for the PHP web app project.
+     |-- info.php
+     |-- index.html
+     |-- robots.txt
+     |-- wordpress/
+     |-- etc...
+     |-- vagrant - The root folder of this project, embedded as a subfolder in the web app project.
+          |-- Vagrantfile - The configuration file for Vagrant
+          |-- chef_cookbooks/ - Chef recipes for provisioning the Vagrant VM
+          |-- .vagrant - Your actual Vagrant VM is stored here.  Ignored by Git.
+          |-- .gitignore - Tells Git what to ignore.

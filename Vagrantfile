@@ -37,7 +37,8 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  # config.vm.synced_folder "../data", "/vagrant_data"
+  config.vm.synced_folder ".", "/vagrant", disabled: true # Don't sync the tech stack folder.
+  config.vm.synced_folder "..", "/vagrant" # Sync the above folder.  The actual web app project.
 
   # View the documentation for the provider you're using for more
   # information on available options.
@@ -50,10 +51,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, :inline => "sudo apt-get update --fix-missing"
 
   config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = "cookbooks"
-    #chef.provisioning_path = "/tmp/vagrant-chef"
-    #chef.roles_path = "roles"
-    #chef.data_bags_path = "data_bags"
+    chef.cookbooks_path = "chef_cookbooks"
 
     chef.add_recipe "apt"
     chef.add_recipe "chef_handler"
