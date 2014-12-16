@@ -20,7 +20,7 @@ Embed this project as a folder in your PHP project.  You might want to consider 
 Git submodule.  This project will share the ```..``` folder with the Vagrant VM as its
 ```/vagrant``` folder.  That's the document root for the nginx server, so the root of your PHP
 project will be the root of the web server in the Vagrant VM.  You'll be able to access it at
-```http://localhost:7777```.
+[http://localhost:7777](http://localhost:7777).
 
 ## Provisioning
 
