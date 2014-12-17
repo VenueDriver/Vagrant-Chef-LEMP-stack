@@ -17,10 +17,10 @@ your code using your favorite native tools in your host OS.  You get the best of
 ## Usage
 
 Embed this project as a folder in your PHP project.  You might want to consider embedding it as a
-Git submodule.  This project will share the ```..``` folder with the Vagrant VM as its
-```/vagrant``` folder.  That's the document root for the nginx server, so the root of your PHP
-project will be the root of the web server in the Vagrant VM.  You'll be able to access it at
-[http://localhost:7777](http://localhost:7777).
+[Git submodule](http://git-scm.com/book/en/v2/Git-Tools-Submodules).  This project will share the
+```..``` folder with the Vagrant VM as its ```/vagrant``` folder.  That's the document root for the
+nginx server, so the root of your PHP project will be the root of the web server in the Vagrant VM.
+You'll be able to access it at [http://localhost:7777](http://localhost:7777).
 
 ## Provisioning
 
@@ -78,3 +78,16 @@ PHP web app project.
           |-- chef_cookbooks/ - Chef recipes for provisioning the Vagrant VM
           |-- .vagrant - Your actual Vagrant VM is stored here.  Ignored by Git.
           |-- .gitignore - Tells Git what to ignore.
+
+## Embedding
+
+To embed this technology stack as a Git submodule in your PHP project, do this from your main
+project:
+
+    git submodule add https://github.com/VenueDriver/Vagrant-Chef-LEMP.git vagrant
+
+After you clone a web application project that includes this project as a Git submodule, you will
+need to update the submodules from your main project:
+
+    git submodule init
+    git submodule update
