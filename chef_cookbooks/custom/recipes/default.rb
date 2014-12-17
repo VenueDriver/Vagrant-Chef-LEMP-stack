@@ -15,3 +15,7 @@ include_recipe "nginx-php-fpm"
   end
 end
 
+bash "Create database 'webapp'" do
+  user 'root'
+  code "mysql -uroot -pilikerandompasswords -e 'create database if not exists webapp'"
+end
