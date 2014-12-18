@@ -38,7 +38,7 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   config.vm.synced_folder ".", "/vagrant", disabled: true # Don't sync the tech stack folder.
-  config.vm.synced_folder "..", "/vagrant" # Sync the above folder.  The actual web app project.
+  config.vm.synced_folder "..", "/vagrant", owner: "www-data", group: "www-data" # Sync the above folder.  The actual web app project.
 
   # View the documentation for the provider you're using for more
   # information on available options.
